@@ -12,6 +12,7 @@
 		3AECB2EE2624A3390034DE21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AECB2ED2624A3390034DE21 /* Assets.xcassets */; };
 		3AECB2F12624A3390034DE21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AECB2F02624A3390034DE21 /* Preview Assets.xcassets */; };
 		3AECB2F42624A3390034DE21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AECB2F22624A3390034DE21 /* LaunchScreen.storyboard */; };
+		3AECB2FE2624A40E0034DE21 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECB2FD2624A40E0034DE21 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3AECB2F02624A3390034DE21 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3AECB2F32624A3390034DE21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AECB2F52624A3390034DE21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AECB2FD2624A40E0034DE21 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				3AECB2E72624A3370034DE21 /* AppDelegate.swift */,
 				3AECB2E92624A3370034DE21 /* SceneDelegate.swift */,
+				3AECB2FD2624A40E0034DE21 /* MainViewController.swift */,
 				3AECB2ED2624A3390034DE21 /* Assets.xcassets */,
 				3AECB2F22624A3390034DE21 /* LaunchScreen.storyboard */,
 				3AECB2F52624A3390034DE21 /* Info.plist */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AECB2FE2624A40E0034DE21 /* MainViewController.swift in Sources */,
 				3AECB2E82624A3370034DE21 /* AppDelegate.swift in Sources */,
 				3AECB2EA2624A3370034DE21 /* SceneDelegate.swift in Sources */,
 			);

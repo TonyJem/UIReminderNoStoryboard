@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  UIReminderWithNoStoryboard
-//
-//  Created by Office-iMac on 2021-04-12.
-//
-
 import UIKit
 
 @main
