@@ -51,6 +51,12 @@ final class MainViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
+    
+    private lazy var myTableView: UITableView = {
+        let tableView = UITableView(frame: view.frame)
+        
+        return tableView
+    }()
 
     // MARK: - Lifecycle
 
@@ -60,6 +66,7 @@ final class MainViewController: UIViewController {
         configureSearchBar()
         configureCollectionView()
         configureMyListsLabel()
+        configureTableView()
         applyTheming()
     }
 }
@@ -112,6 +119,22 @@ private extension MainViewController {
             make.top.equalTo(remindersTypeCollectionView.snp.bottom).offset(EdgeMargin)
         }
     }
+    
+    func configureTableView() {
+        view.addSubview(myTableView)
+
+        myTableView.snp.makeConstraints { make in
+            make.top.equalTo(myListsLabel.snp.bottom).offset(EdgeMargin)
+            make.height.equalTo(50)
+            make.leading.equalTo(myListsLabel)
+            make.trailing.equalTo(myListsLabel)
+        }
+        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
+        myTableView.dataSource = self
+        UITableView.appearance().separatorColor = UIColor.white
+        myTableView.tableFooterView = UIView()
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource methods
@@ -139,4 +162,16 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegateFlowLayout {
 
 
+}
+
+extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
+        cell.textLabel!.text = "Reminders"
+        return cell
+    }
 }
