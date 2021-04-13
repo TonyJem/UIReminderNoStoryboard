@@ -15,6 +15,7 @@
 		3AECB2FE2624A40E0034DE21 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECB2FD2624A40E0034DE21 /* MainViewController.swift */; };
 		3AECB3022624A95E0034DE21 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3AECB3012624A95E0034DE21 /* SnapKit */; };
 		3AECB3052624B61B0034DE21 /* ReminderTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECB3042624B61B0034DE21 /* ReminderTypeCell.swift */; };
+		3AECB30D2625FC6E0034DE21 /* MyListsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECB30C2625FC6E0034DE21 /* MyListsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		3AECB2F52624A3390034DE21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AECB2FD2624A40E0034DE21 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3AECB3042624B61B0034DE21 /* ReminderTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTypeCell.swift; sourceTree = "<group>"; };
+		3AECB30C2625FC6E0034DE21 /* MyListsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				3AECB2E72624A3370034DE21 /* AppDelegate.swift */,
 				3AECB2FD2624A40E0034DE21 /* MainViewController.swift */,
 				3AECB2E92624A3370034DE21 /* SceneDelegate.swift */,
+				3AECB30C2625FC6E0034DE21 /* MyListsCell.swift */,
 				3AECB3042624B61B0034DE21 /* ReminderTypeCell.swift */,
 				3AECB2ED2624A3390034DE21 /* Assets.xcassets */,
 				3AECB2F22624A3390034DE21 /* LaunchScreen.storyboard */,
@@ -158,6 +161,7 @@
 			files = (
 				3AECB2FE2624A40E0034DE21 /* MainViewController.swift in Sources */,
 				3AECB3052624B61B0034DE21 /* ReminderTypeCell.swift in Sources */,
+				3AECB30D2625FC6E0034DE21 /* MyListsCell.swift in Sources */,
 				3AECB2E82624A3370034DE21 /* AppDelegate.swift in Sources */,
 				3AECB2EA2624A3370034DE21 /* SceneDelegate.swift in Sources */,
 			);

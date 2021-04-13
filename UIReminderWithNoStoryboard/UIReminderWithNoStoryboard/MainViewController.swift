@@ -38,7 +38,6 @@ final class MainViewController: UIViewController {
 
         let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: collectionViewLayout)
         collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.register(ReminderTypeCell.self, forCellWithReuseIdentifier: "ReminderTypeCell")
         collectionView.backgroundColor = .systemGray6
 
@@ -51,10 +50,15 @@ final class MainViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
-    
-    private lazy var myTableView: UITableView = {
+
+    private lazy var myListsTableView: UITableView = {
         let tableView = UITableView(frame: view.frame)
-        
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .systemGray6
+        tableView.dataSource = self
+        tableView.register(MyListsCell.self, forCellReuseIdentifier: "MyListsCell")
+
         return tableView
     }()
 
@@ -66,7 +70,7 @@ final class MainViewController: UIViewController {
         configureSearchBar()
         configureCollectionView()
         configureMyListsLabel()
-        configureTableView()
+        configureMyListsTableView()
         applyTheming()
     }
 }
@@ -119,22 +123,17 @@ private extension MainViewController {
             make.top.equalTo(remindersTypeCollectionView.snp.bottom).offset(EdgeMargin)
         }
     }
-    
-    func configureTableView() {
-        view.addSubview(myTableView)
 
-        myTableView.snp.makeConstraints { make in
+    func configureMyListsTableView() {
+        view.addSubview(myListsTableView)
+
+        myListsTableView.snp.makeConstraints { make in
+            make.leading.equalTo(remindersTypeCollectionView)
+            make.trailing.equalTo(remindersTypeCollectionView)
             make.top.equalTo(myListsLabel.snp.bottom).offset(EdgeMargin)
-            make.height.equalTo(50)
-            make.leading.equalTo(myListsLabel)
-            make.trailing.equalTo(myListsLabel)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
-        myTableView.dataSource = self
-        UITableView.appearance().separatorColor = UIColor.white
-        myTableView.tableFooterView = UIView()
     }
-    
 }
 
 // MARK: - UICollectionViewDataSource methods
@@ -157,21 +156,22 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout methods
-
-extension MainViewController: UICollectionViewDelegateFlowLayout {
-
-
-}
+// MARK: - UITableViewDataSource methods
 
 extension MainViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        cell.textLabel!.text = "Reminders"
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyListsCell", for: indexPath)
+
+        guard let myListsCell = cell as? MyListsCell else {
+            return cell
+        }
+
+        myListsCell.configureCell(text: "Reminders")
+        return myListsCell
     }
 }
