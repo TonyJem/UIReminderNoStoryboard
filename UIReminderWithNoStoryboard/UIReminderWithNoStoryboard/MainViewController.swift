@@ -171,7 +171,7 @@ extension MainViewController: UITableViewDataSource {
             return cell
         }
 
-        myListsCell.configureCell(text: "Reminders")
+        myListsCell.configureCell(text: "Reminders", cellHeight: cell.frame.height)
         return myListsCell
     }
 }
