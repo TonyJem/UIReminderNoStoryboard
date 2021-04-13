@@ -7,7 +7,7 @@ final class MainViewController: UIViewController {
 
     private let EdgeMargin: CGFloat = 20
     private let SearchBarHeight: CGFloat = 50
-    private let CollectionViewCellHeight: CGFloat = 100
+    private let CollectionViewCellHeight: CGFloat = 75
 
     private var collectionViewCellWidth: CGFloat {
         (view.frame.width / 2) - EdgeMargin * 2
@@ -70,9 +70,6 @@ private extension MainViewController {
         let clearImage = UIImage()
         navigationController.navigationBar.setBackgroundImage(clearImage, for: .default)
         navigationController.navigationBar.shadowImage = clearImage
-        navigationController.navigationBar.isTranslucent = true
-        navigationController.view.backgroundColor = .clear
-
         navigationItem.rightBarButtonItem = editButton
     }
 
@@ -108,7 +105,14 @@ extension MainViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.dequeueReusableCell(withReuseIdentifier: "ReminderTypeCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReminderTypeCell", for: indexPath)
+
+        guard let reminderTypeCell = cell as? ReminderTypeCell else {
+            return cell
+        }
+
+        reminderTypeCell.configureCell(type: ReminderTypeCell.ReminderType(rawValue: indexPath.row)!)
+        return reminderTypeCell
     }
 }
 
