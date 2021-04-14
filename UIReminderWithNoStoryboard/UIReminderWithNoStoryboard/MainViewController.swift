@@ -61,6 +61,8 @@ final class MainViewController: UIViewController {
 
         return tableView
     }()
+    
+    private var bottomView = UIView()
 
     // MARK: - Lifecycle
 
@@ -71,6 +73,8 @@ final class MainViewController: UIViewController {
         configureCollectionView()
         configureMyListsLabel()
         configureMyListsTableView()
+        configureBottomView()
+        
         applyTheming()
     }
 }
@@ -131,7 +135,58 @@ private extension MainViewController {
             make.leading.equalTo(remindersTypeCollectionView)
             make.trailing.equalTo(remindersTypeCollectionView)
             make.top.equalTo(myListsLabel.snp.bottom).offset(EdgeMargin)
+            make.height.equalTo(100)
+        }
+    }
+    
+    func configureBottomView() {
+        view.addSubview(bottomView)
+        bottomView.backgroundColor = .clear
+        bottomView.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.leading.equalTo(view).offset(0)
+            make.trailing.equalTo(view).inset(0)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        let buttonPlusButton = UIButton()
+        buttonPlusButton.setTitleColor(.systemBlue, for: .normal)
+        buttonPlusButton.setImage(.add, for: .normal)
+        
+        bottomView.addSubview(buttonPlusButton)
+        
+        buttonPlusButton.snp.makeConstraints { make in
+            make.height.width.equalTo(40)
+            make.leading.equalTo(bottomView).offset(20)
+            make.centerY.equalTo(bottomView)
+        }
+        
+        let buttonLabel = UILabel()
+        buttonLabel.text = "New Reminder"
+        buttonLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        buttonLabel.textColor = .systemBlue
+        
+        bottomView.addSubview(buttonLabel)
+        
+        buttonLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(bottomView)
+            make.height.equalTo(40)
+            make.leading.equalTo(buttonPlusButton.snp.trailing).offset(20)
+            make.trailing.equalTo(bottomView.snp.trailing).offset(20)
+        }
+        
+        let listLabel = UILabel()
+        listLabel.text = "Add List"
+        listLabel.font = UIFont.systemFont(ofSize: 17)
+        listLabel.textColor = .systemBlue
+        
+        bottomView.addSubview(listLabel)
+        
+        listLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(bottomView)
+            make.height.equalTo(40)
+            make.width.equalTo(80)
+            make.trailing.equalTo(bottomView.snp.trailing).inset(5)
         }
     }
 }
